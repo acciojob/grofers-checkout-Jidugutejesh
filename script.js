@@ -16,7 +16,7 @@ const getSum = () => {
 	td.style.fontWeight='bold'
 
 	row.appendChild(td)
-	table.appenChild(row)
+	table.appendChild(row)
 };
 
 getSumBtn.addEventListener("click", getSum);
