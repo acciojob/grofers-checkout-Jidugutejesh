@@ -4,31 +4,21 @@ document.body.appendChild(getSumBtn);
 
 const getSum = () => {
 //Add your code here
-	 // Step 1: Select all prices
-  let prices = document.querySelectorAll(".price");
+	const prices = document.querySelectorAll(".price");
+	let totalAmount =0;
+	for(let i =0;i<prices.length;i++){
+		totalAmount+=parseFloat(prices[i].innerText);
+	}
+	const table = document.querySelector("table");
+	const existingTotalRow=document.querySe
+	const row=document.createElement('tr');
+	const td=document.createElement('td')
+	td.innerHTML=`Total Amount: ${totalAmount}`
+	td.colspan=2;
+	td.style.fontWeight='bold'
 
-  let total = 0;
-
-  // Step 2: Sum up the prices
-  prices.forEach(price => {
-    total += Number(price.textContent);
-  });
-
-  // Step 3: Create new row and cell
-  let newRow = document.createElement("tr");
-  let newCell = document.createElement("td");
-
-  // Span across 2 columns
-  newCell.colSpan = 2;
-  newCell.textContent = "Total Price: Rs " + total;
-
-  // Step 4: Append to table
-  newRow.appendChild(newCell);
-  document.querySelector("table").appendChild(newRow);
-
-  // Disable button after showing total (optional, avoids duplicate rows)
-  getSumBtn.disabled = true;
-
+	row.appendChild(td)
+	table.appendChild(row)
 };
 
 getSumBtn.addEventListener("click", getSum);
