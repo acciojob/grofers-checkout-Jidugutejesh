@@ -7,11 +7,11 @@ const getSum = () => {
 	const prices = document.querySelectorAll(".price")
 	let totalAmount =0;
 	for(let i =0;i<prices.length;i++){
-		totalAmount+=parseInt(prices[i].innerHTML)
+		totalAmount+=parseInt(prices[i].innerText)
 	}
-	const r0w=document.createElement('tr')
+	const row=document.createElement('tr')
 	const td=document.createElement('td')
-	td.innerHTML=`TotalAmount ${totalAmount}`
+	td.innerHTML=`Total Amount:${totalAmount}`
 	td.colspan=2;
 	td.style.fontWeight='bold'
 
