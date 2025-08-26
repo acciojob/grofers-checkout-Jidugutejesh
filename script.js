@@ -20,6 +20,5 @@ const getSum = () => {
 	row.appendChild(td)
 	table.appendChild(row)
 };
-
 getSumBtn.addEventListener("click", getSum);
 
