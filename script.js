@@ -10,7 +10,7 @@ const getSum = () => {
 		totalAmount+=Number(prices[i].innerText);
 	}
 	const table = document.querySelector("table");
-	// const existingTotalRow=document.querySelector("table");
+	 const existingTotalRow=document.querySelector("table");
 	// if(existingTotalRow) {
 	// 	existingTotalRow.remove();
 	// }
