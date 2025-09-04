@@ -1,27 +1,20 @@
-const getSumBtn = document.createElement("button");
-getSumBtn.append("Get Total Price");
-document.body.appendChild(getSumBtn);
+// Select all price elements
+const prices = document.querySelectorAll(".prices");
 
-const getSum = () => {
-//Add your code here
-	const prices = document.querySelectorAll(".price");
-	let totalAmount =0;
-	for(let i =0;i<prices.length;i++){
-		totalAmount+=Number(prices[i].innerText);
-	}
-	const table = document.querySelector("table");
-	 const existingTotalRow=document.querySelector("table");
-	// if(existingTotalRow) {
-	// 	existingTotalRow.remove();
-	// }
-	const row=document.createElement('tr');
-	const td=document.createElement('td')
-	td.innerHTML=`Total Amount: ${totalAmount}`
-	td.colspan=2;
-	td.style.fontWeight='bold'
+// Calculate total
+let total = 0;
+prices.forEach(priceCell => {
+  total += parseFloat(priceCell.textContent); // convert text to number
+});
 
-	row.appendChild(td)
-	table.appendChild(row)
-};
-getSumBtn.addEventListener("click", getSum);
+// Create new row
+const table = document.getElementById("groceryTable");
+const totalRow = document.createElement("tr");
+totalRow.classList.add("total-row");
 
+const totalCell = document.createElement("td");
+totalCell.colSpan = 2; // span across both columns
+totalCell.textContent = "Total Price: " + total;
+
+totalRow.appendChild(totalCell);
+table.appendChild(totalRow);
