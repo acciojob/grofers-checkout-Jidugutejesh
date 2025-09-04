@@ -1,20 +1,11 @@
-// Select all price elements
-const prices = document.querySelectorAll(".prices");
+    function calculateTotal() {
+      let prices = document.querySelectorAll(".price");
+      let total = 0;
 
-// Calculate total
-let total = 0;
-prices.forEach(priceCell => {
-  total += parseFloat(priceCell.textContent); // convert text to number
-});
+      prices.forEach(cell => {
+        let val = parseFloat(cell.textContent) || 0;
+        total += val;
+      });
 
-// Create new row
-const table = document.getElementById("groceryTable");
-const totalRow = document.createElement("tr");
-totalRow.classList.add("total-row");
-
-const totalCell = document.createElement("td");
-totalCell.colSpan = 2; // span across both columns
-totalCell.textContent = "Total Price: " + total;
-
-totalRow.appendChild(totalCell);
-table.appendChild(totalRow);
+      document.getElementById("ans").textContent = total;
+    }
