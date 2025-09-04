@@ -4,8 +4,8 @@
 
     prices.forEach(cell => {
       let numbers = cell.textContent.match(/\d+/g);
-      let val = numbers ? parseInt(numbers[numbers.length - 1]) : 0;
-      total += val;
+      let value = numbers ? parseInt(numbers[numbers.length - 1], 10) : 0;
+      total += value;
     });
 
     document.getElementById("ans").textContent = total;
