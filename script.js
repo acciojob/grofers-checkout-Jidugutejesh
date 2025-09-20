@@ -3,7 +3,6 @@
     let total = 0;
 
     prices.forEach(cell => {
-      // Extract all numeric sequences
       let matches = cell.textContent.match(/\d+/g);
       let value = 0;
       if (matches && matches.length > 0) {
