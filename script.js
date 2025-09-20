@@ -5,11 +5,10 @@ function calculateTotal() {
   priceElements.forEach(price => {
     let text = price.textContent.trim();
 
-    let value = parseFloat(text.match(/\d+$/)); 
+    let match = text.match(/\d+$/);
+    let value = match ? parseFloat(match[0]) : 0;
 
-    if (!isNaN(value)) {
-      sum += value;
-    }
+    sum += value;
   });
 
   const existingTotal = document.getElementById("totalRow");
