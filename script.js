@@ -3,7 +3,10 @@ function calculateTotal() {
   let sum = 0;
 
   priceElements.forEach(price => {
-    let value = parseFloat(price.textContent);
+    let text = price.textContent.trim();
+
+    let value = parseFloat(text.match(/\d+$/)); 
+
     if (!isNaN(value)) {
       sum += value;
     }
