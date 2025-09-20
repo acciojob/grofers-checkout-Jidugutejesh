@@ -25,4 +25,5 @@ function calculateTotal() {
   row.appendChild(cell);
   table.appendChild(row);
 
+  document.getElementById("ans").textContent = sum;
 }
