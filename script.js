@@ -1,16 +1,27 @@
-  function calculateTotal() {
-    let prices = document.querySelectorAll(".price");
-    let total = 0;
+function calculateTotal() {
+  const priceElements = document.querySelectorAll(".price");
+  let sum = 0;
 
-    prices.forEach(cell => {
-      let matches = cell.textContent.match(/\d+/g);
-      let value = 0;
-      if (matches && matches.length > 0) {
-        // Take the last number user/Cypress typed
-        value = parseInt(matches[matches.length - 1], 10);
-      }
-      total += value;
-    });
+  priceElements.forEach(price => {
+    let value = parseFloat(price.textContent);
+    if (!isNaN(value)) {
+      sum += value;
+    }
+  });
 
-    document.getElementById("ans").textContent = total;
-  }
+  const existingTotal = document.getElementById("totalRow");
+  if (existingTotal) existingTotal.remove();
+
+  const table = document.getElementById("groceryTable");
+  const row = document.createElement("tr");
+  row.id = "totalRow";
+
+  const cell = document.createElement("td");
+  cell.colSpan = 2;
+  cell.textContent = "Total Price: " + sum;
+
+  row.appendChild(cell);
+  table.appendChild(row);
+
+  document.getElementById("ans").textContent = sum;
+}
